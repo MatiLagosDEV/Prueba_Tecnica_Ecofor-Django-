@@ -7,7 +7,8 @@ class CatSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class FavoriteCatSerializer(serializers.ModelSerializer):
-    cat_detalles = serializers.StringRelatedField(source='cat', read_only=True)
+    cat_detalles = CatSerializer(source='cat', read_only=True)
+    
     class Meta:
         model = favoriteCat
         fields = ['id', 'cat', 'cat_detalles']
