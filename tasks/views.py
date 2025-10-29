@@ -57,3 +57,4 @@ def add_favorite_by_id(request):
     )
     return Response(FavoriteCatSerializer(fav).data)
 
+
