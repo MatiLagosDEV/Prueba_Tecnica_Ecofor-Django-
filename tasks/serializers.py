@@ -1,14 +1,7 @@
 from rest_framework import serializers
-from tasks.models import Cat, favoriteCat
-
-class CatSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Cat
-        fields = '__all__'
+from tasks.models import FavoriteCat
 
 class FavoriteCatSerializer(serializers.ModelSerializer):
-    cat_detalles = CatSerializer(source='cat', read_only=True)
-    
     class Meta:
-        model = favoriteCat
-        fields = ['id', 'cat', 'cat_detalles']
+        model = FavoriteCat
+        fields = '__all__'
